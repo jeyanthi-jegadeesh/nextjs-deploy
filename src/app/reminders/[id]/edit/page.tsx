@@ -14,7 +14,14 @@ function Page () {
   const router = useRouter();
   const params = useParams();
 
-  const reminder: ReminderType | undefined = useStore(findReminder(parseInt(params.id)));
+  const idParam = Array.isArray(params.id) ? params.id[0] : params.id;
+
+  if (!idParam) {
+    console.error("ID parameter is undefined or invalid");
+    return null; // or handle the error appropriately
+  }
+
+  const reminder: ReminderType | undefined = useStore(findReminder(parseInt(idParam)));
 
   function handleSubmit (newReminder: CounterType) {
     newReminder.id = reminder.id;
