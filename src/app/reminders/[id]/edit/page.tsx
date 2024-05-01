@@ -17,10 +17,9 @@ function Page () {
   
   const idParam = Array.isArray(params.id) ? params.id[0] : params.id;
 
-  // Default to a safe value if idParam isn't valid
   const id = idParam ? parseInt(idParam, 10) : NaN;
 
-  const reminder: ReminderType | undefined = useStore(findReminder(parseInt(id)));
+  const reminder: ReminderType | undefined = useStore(findReminder(id));
 
   function handleSubmit (newReminder: CounterType) {
     newReminder.id = reminder.id;
