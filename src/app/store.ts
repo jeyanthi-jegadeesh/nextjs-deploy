@@ -185,9 +185,9 @@ export const useStore = create<CounterType>()(
     },
   ));
 
-export function findReminder (id:number):(ReminderType | undefined) {
-  return function (state:CounterType):(ReminderType | undefined) {
-    return state.reminders.find((reminder:ReminderType):(ReminderType | undefined) => reminder.id === id);
+export function findReminder (id:number) {
+  return function (state:CounterType) {
+    return state.reminders.find((reminder:ReminderType) => reminder.id === id);
   };
 }
 
