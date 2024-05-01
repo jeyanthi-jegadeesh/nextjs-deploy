@@ -14,7 +14,7 @@ function Page () {
   const router = useRouter();
   const params = useParams();
 
-  const reminder: ReminderType | undefined = useStore(findReminder(parseInt(params.id)))!;
+  const reminder: ReminderType | undefined = useStore(findReminder(parseInt(params.id)));
 
   function handleSubmit (newReminder: CounterType) {
     newReminder.id = reminder.id;
